@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Kairos Admin</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-layout">
+    <div id="admin-nav-placeholder"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Dashboard</span>
+            <span class="topbar-meta" id="topbar-date"></span>
+        </header>
+
+        <div class="admin-content">
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card rose">
+                    <div class="stat-label">Total Products</div>
+                    <div class="stat-value" id="stat-products">…</div>
+                    <div class="stat-sub">in catalogue</div>
+                </div>
+                <div class="stat-card gold">
+                    <div class="stat-label">Total Orders</div>
+                    <div class="stat-value" id="stat-orders">…</div>
+                    <div class="stat-sub" id="stat-pending-sub">loading…</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-label">Customers</div>
+                    <div class="stat-value" id="stat-users">…</div>
+                    <div class="stat-sub">registered accounts</div>
+                </div>
+                <div class="stat-card warn">
+                    <div class="stat-label">Low Stock</div>
+                    <div class="stat-value" id="stat-low">…</div>
+                    <div class="stat-sub">items ≤ 5 units</div>
+                </div>
+            </div>
+
+            <!-- Quick links -->
+            <div class="quick-links">
+                <a href="/static/admin-pages/AddProduct.html" class="quick-link-card">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    <span>Add Product</span>
+                </a>
+                <a href="/static/admin-pages/orders.html" class="quick-link-card">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+                    <span>View Orders</span>
+                </a>
+                <a href="/static/admin-pages/users.html" class="quick-link-card">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    <span>Customers</span>
+                </a>
+                <a href="/static/admin-pages/promo.html" class="quick-link-card">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                    <span>Promo Codes</span>
+                </a>
+            </div>
+
+            <!-- Products table -->
+            <div class="section-head">
+                <h2>All Products</h2>
+                <a href="/static/admin-pages/AddProduct.html" class="btn-primary">+ Add Product</a>
+            </div>
+
+            <div class="table-wrap">
+                <div class="table-toolbar">
+                    <input type="text" id="prod-search" class="table-search"
+                        placeholder="Search by name, category or fabric…"
+                        oninput="filterTable()">
+                </div>
+                <div id="products-container">
+                    <p class="table-empty">Loading products…</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/admin-pages/admin-nav.js?v=2"></script>
+<script src="/static/admin-pages/script.js?v=2"></script>
+</body>
+</html>

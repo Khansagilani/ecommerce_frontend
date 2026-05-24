@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kairos — Where East Meets West</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/customer-pages/style.css">
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Eid Collection 2025</span>
+      <h1 class="hero-title">Where east<br><em>Meets West</em></h1>
+      <p class="hero-subtitle">Pret &middot; Unstitched &middot; Formals</p>
+      <button class="hero-btn" onclick="document.getElementById('eid').scrollIntoView({behavior:'smooth'})">Explore Collection</button>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <div id="trust-badges">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-icon">🚚</span>
+        <div><strong>Free Delivery</strong><span>Orders over PKR 5,000</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">💳</span>
+        <div><strong>COD Available</strong><span>Nationwide coverage</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">↩</span>
+        <div><strong>Easy Returns</strong><span>7-day return policy</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔒</span>
+        <div><strong>Secure Checkout</strong><span>Safe &amp; encrypted</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EID COLLECTION -->
+  <section id="eid">
+    <div class="sec-header">
+      <span class="sec-tag">Featured</span>
+      <h2 class="sec-title">Eid Collection</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="product-grid" id="eid-grid"></div>
+  </section>
+
+  <!-- BY CATEGORY -->
+  <section id="by-category">
+    <div class="sec-header">
+      <span class="sec-tag">Shop By</span>
+      <h2 class="sec-title">Category</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterAndScroll('rtw')">
+        <div class="cat-bg cat-rtw"></div>
+        <div class="cat-label"><span>Shop Now</span><h3>Ready to Wear</h3></div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('unstitched')">
+        <div class="cat-bg cat-unstitched"></div>
+        <div class="cat-label"><span>Shop Now</span><h3>Unstitched</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RTW BANNER -->
+  <section id="rtw-section" onclick="filterProducts('rtw','printed',null,null)">
+    <div class="rtw-bg">
+      <div class="rtw-pattern"></div>
+      <div class="rtw-photo"></div>
+      <div class="rtw-content">
+        <small>New Arrivals</small>
+        <h2>Ready<br>to Wear</h2>
+        <p>Printed &middot; Lawn &middot; Casual</p>
+        <a href="#" onclick="event.stopPropagation();filterProducts('rtw','printed',null,null)">Shop RTW &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section id="trending">
+    <div class="sec-header">
+      <span class="sec-tag">What's Hot</span>
+      <h2 class="sec-title">Trending Now</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="loadTrending('printed',this)">Printed</button>
+      <button class="filter-tab" onclick="loadTrending('embroidered',this)">Embroidered</button>
+      <button class="filter-tab" onclick="loadTrending(null,this)">All</button>
+    </div>
+    <div class="trending-grid" id="trending-grid"></div>
+  </section>
+
+  <!-- SUBCATEGORY TILES -->
+  <section id="subcategory">
+    <div class="sec-header">
+      <span class="sec-tag">Browse</span>
+      <h2 class="sec-title">Shop by <em>Style</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-tile" onclick="filterProducts(null,'embroidered',null,null)">
+        <div class="tile-bg-div" style="background:url('https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=600&q=80') center/cover no-repeat,linear-gradient(160deg,#3d2010,#6b3520)"></div>
+        <div class="tile-overlay"><div class="tile-label"><small>Fabric</small>Embroidered</div></div>
+      </div>
+      <div class="sub-tile" onclick="filterProducts(null,'printed',null,null)">
+        <div class="tile-bg-div" style="background:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80') center/cover no-repeat,linear-gradient(160deg,#1a2d3d,#2a4d6a)"></div>
+        <div class="tile-overlay"><div class="tile-label"><small>Fabric</small>Printed</div></div>
+      </div>
+      <div class="sub-tile" onclick="filterProducts(null,null,'casual',null)">
+        <div class="tile-bg-div" style="background:url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80') center/cover no-repeat,linear-gradient(160deg,#2d3520,#4a5535)"></div>
+        <div class="tile-overlay"><div class="tile-label"><small>Style</small>Casual</div></div>
+      </div>
+      <div class="sub-tile" onclick="filterProducts(null,null,'formal',null)">
+        <div class="tile-bg-div" style="background:url('https://images.unsplash.com/photo-1614251056216-f748f76cd228?auto=format&fit=crop&w=600&q=80') center/cover no-repeat,linear-gradient(160deg,#1a1428,#2d2248)"></div>
+        <div class="tile-overlay"><div class="tile-label"><small>Style</small>Formal</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM FEED -->
+  <section id="instagram">
+    <div class="sec-header">
+      <span class="sec-tag">Follow Us</span>
+      <h2 class="sec-title">@kairos.pk</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="insta-grid">
+      <div class="insta-tile"><img src="https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=400&q=80" alt="Embroidered fabric"><div class="insta-tile-overlay"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/></svg></div></div>
+      <div class="insta-tile"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80" alt="Traditional embroidery"><div class="insta-tile-overlay"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/></svg></div></div>
+      <div class="insta-tile"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=400&q=80" alt="Fabric texture"><div class="insta-tile-overlay"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/></svg></div></div>
+      <div class="insta-tile"><img src="https://images.unsplash.com/photo-1614251056216-f748f76cd228?auto=format&fit=crop&w=400&q=80" alt="Traditional fashion"><div class="insta-tile-overlay"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/></svg></div></div>
+      <div class="insta-tile"><img src="https://images.unsplash.com/photo-1612831819797-04b4d8b30d57?auto=format&fit=crop&w=400&q=80" alt="Textile detail"><div class="insta-tile-overlay"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/></svg></div></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <div class="sec-header">
+      <span class="sec-tag">Stay Connected</span>
+      <h2 class="sec-title" style="color:white">Join Our World</h2>
+      <div class="sec-line"></div>
+    </div>
+    <p class="newsletter-sub">Be the first to know about new collections, exclusive offers, and style inspiration.</p>
+    <div class="newsletter-form">
+      <input type="email" id="newsletter-email" placeholder="Your email address">
+      <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p id="newsletter-msg" style="color:var(--rose);font-size:12px;margin-top:12px;min-height:18px"></p>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/923001234567?text=Hi%20Kairos!%20I%27d%20like%20to%20know%20more%20about%20your%20collection."
+     target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="/static/customer-pages/script.js?v=2"></script>
+  <script src="/static/customer-pages/nav.js?v=2"></script>
+
+</body>
+</html>

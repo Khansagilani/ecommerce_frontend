@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Kairos</title>
+  <meta name="description" content="Premium Pakistani fashion by Kairos.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/customer-pages/style.css">
+  <link rel="stylesheet" href="/static/customer-pages/product.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- BREADCRUMB -->
+  <div id="breadcrumb">
+    <a href="/static/customer-pages/index.html">Home</a>
+    <span>&rsaquo;</span>
+    <a href="#" id="bc-category"></a>
+    <span>&rsaquo;</span>
+    <span id="bc-name">Product</span>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <section id="product-detail">
+    <div class="pd-image-col">
+      <div class="pd-img-wrap">
+        <img id="pd-img" src="/static/public/img2.jpg" alt="product image">
+      </div>
+      <!-- Wishlist heart button -->
+      <button id="wishlist-btn" class="wishlist-btn" onclick="toggleWishlist()" title="Save to Wishlist" aria-label="Add to wishlist">
+        <svg id="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="pd-info-col">
+      <p id="pd-category" class="pd-category"></p>
+      <h1 id="pd-name" class="pd-name">Loading…</h1>
+      <p id="pd-price" class="pd-price"></p>
+
+      <!-- Star rating summary -->
+      <div id="pd-rating-row" class="pd-rating-row" style="display:none">
+        <div id="pd-stars" class="star-display"></div>
+        <span id="pd-review-count" class="review-count-label"></span>
+      </div>
+
+      <div class="pd-divider"></div>
+      <p id="pd-description" class="pd-description"></p>
+
+      <!-- SIZE SELECTOR -->
+      <div id="size-section" style="display:none">
+        <div class="size-label-row">
+          <p class="size-label">Select Size</p>
+          <button class="size-guide-link" onclick="openSizeGuide()">Size Guide</button>
+        </div>
+        <div id="size-options" class="size-options"></div>
+        <p id="size-error" class="size-error"></p>
+      </div>
+
+      <p id="pd-stock" class="pd-stock"></p>
+
+      <button id="pd-add-cart" class="btn-fill pd-btn">Add to Cart</button>
+
+      <!-- PRODUCT DETAILS ACCORDION -->
+      <div class="pd-details">
+        <div class="pd-detail-row" id="pd-fabric-row" style="display:none">
+          <span class="pd-detail-label">Fabric Type</span>
+          <span id="pd-fabric" class="pd-detail-val"></span>
+        </div>
+        <div class="pd-detail-row" id="pd-style-row" style="display:none">
+          <span class="pd-detail-label">Style</span>
+          <span id="pd-style" class="pd-detail-val"></span>
+        </div>
+        <div class="pd-detail-row" id="pd-pieces-row" style="display:none">
+          <span class="pd-detail-label">Pieces</span>
+          <span id="pd-pieces" class="pd-detail-val"></span>
+        </div>
+      </div>
+
+      <!-- TRUST BADGES MINI -->
+      <div class="pd-trust">
+        <div class="pd-trust-item">🚚 <span>Free delivery over PKR 5,000</span></div>
+        <div class="pd-trust-item">↩ <span>7-day easy returns</span></div>
+        <div class="pd-trust-item">💳 <span>COD available</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIZE GUIDE MODAL -->
+  <div id="size-guide-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeSizeGuide()">
+    <div class="modal-box size-guide-modal-box">
+      <div class="modal-header">
+        <h3>Size Guide</h3>
+        <button class="modal-close" onclick="closeSizeGuide()">&times;</button>
+      </div>
+      <div class="size-guide-content">
+        <p class="size-guide-note">All measurements are in <strong>inches</strong>. For a relaxed fit, size up.</p>
+        <div class="size-table-wrap">
+          <table class="size-table">
+            <thead>
+              <tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th><th>Length</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>XS</td><td>32–33</td><td>25–26</td><td>35–36</td><td>52</td></tr>
+              <tr><td>S</td><td>34–35</td><td>27–28</td><td>37–38</td><td>53</td></tr>
+              <tr><td>M</td><td>36–37</td><td>29–30</td><td>39–40</td><td>54</td></tr>
+              <tr><td>L</td><td>38–39</td><td>31–32</td><td>41–42</td><td>55</td></tr>
+              <tr><td>XL</td><td>40–41</td><td>33–34</td><td>43–44</td><td>56</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="size-guide-note" style="margin-top:16px">Not sure? <strong>WhatsApp us</strong> for personalised sizing help.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS SECTION -->
+  <section id="reviews-section" style="display:none">
+    <div class="section-inner">
+      <div class="reviews-header">
+        <h2 class="section-heading">Customer Reviews</h2>
+        <div id="avg-rating-display" class="avg-rating"></div>
+      </div>
+      <div id="reviews-list"></div>
+      <div id="review-form-wrap" class="review-form-wrap">
+        <h4>Write a Review</h4>
+        <div class="star-input" id="star-input">
+          <span class="star-pick" data-v="1">★</span>
+          <span class="star-pick" data-v="2">★</span>
+          <span class="star-pick" data-v="3">★</span>
+          <span class="star-pick" data-v="4">★</span>
+          <span class="star-pick" data-v="5">★</span>
+        </div>
+        <textarea id="review-text" class="review-textarea" placeholder="Share your experience with this product…"></textarea>
+        <button class="btn-fill review-submit-btn" onclick="submitReview()">Submit Review</button>
+        <p id="review-msg" class="review-msg"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED PRODUCTS -->
+  <section id="related-section" style="display:none">
+    <div class="section-inner">
+      <div class="sec-tag">You May Also Like</div>
+      <h2 class="section-heading">Related Products</h2>
+      <div id="related-grid" class="product-grid"></div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/static/customer-pages/product.js"></script>
+  <script src="/static/customer-pages/nav.js"></script>
+</body>
+</html>

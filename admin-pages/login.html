@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login — Kairos</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-login-page">
+    <div class="login-card">
+        <div class="login-card-head">
+            <span class="brand-logo">Kairos</span>
+            <span class="brand-tag">Admin Access</span>
+        </div>
+        <div class="login-card-body">
+            <h3>Sign in to your panel</h3>
+            <form id="loginForm" novalidate>
+                <div class="login-field">
+                    <label for="username">Email Address</label>
+                    <input type="email" id="username" placeholder="admin@kairos.pk" autocomplete="email" required>
+                </div>
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="login-submit">Sign In</button>
+                <p id="loginMsg" class="login-msg"></p>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/static/admin-pages/login.js"></script>
+</body>
+</html>

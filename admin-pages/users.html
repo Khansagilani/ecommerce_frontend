@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers — Kairos Admin</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-layout">
+    <div id="admin-nav-placeholder"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Customers</span>
+            <span class="topbar-meta" id="topbar-date"></span>
+        </header>
+
+        <div class="admin-content">
+
+            <div class="section-head">
+                <h2>All Customers</h2>
+                <span class="stat-badge" id="user-count-badge"></span>
+            </div>
+
+            <div class="table-wrap">
+                <div class="table-toolbar">
+                    <input type="text" id="user-search" class="table-search"
+                        placeholder="Search by name or email…"
+                        oninput="filterUsers()">
+                </div>
+                <div id="users-container">
+                    <p class="table-empty">Loading customers…</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/admin-pages/admin-nav.js?v=2"></script>
+<script src="/static/admin-pages/users.js?v=2"></script>
+</body>
+</html>

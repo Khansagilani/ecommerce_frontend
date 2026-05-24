@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders — Kairos Admin</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-layout">
+    <div id="admin-nav-placeholder"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Orders</span>
+            <span class="topbar-meta" id="orders-count"></span>
+        </header>
+
+        <div class="admin-content">
+
+            <!-- Filter tabs -->
+            <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+                <button class="filter-tab active" onclick="filterOrders('all', this)">All</button>
+                <button class="filter-tab" onclick="filterOrders('pending', this)">Pending</button>
+                <button class="filter-tab" onclick="filterOrders('paid', this)">Paid</button>
+                <button class="filter-tab" onclick="filterOrders('shipped', this)">Shipped</button>
+                <button class="filter-tab" onclick="filterOrders('delivered', this)">Delivered</button>
+                <button class="filter-tab" onclick="filterOrders('cancelled', this)">Cancelled</button>
+            </div>
+
+            <div class="table-wrap">
+                <div id="orders-container">
+                    <p class="table-empty">Loading orders…</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+.filter-tab {
+    padding: 7px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: white;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .12s;
+}
+.filter-tab:hover { background: var(--cream); color: var(--text); }
+.filter-tab.active { background: var(--dark); color: white; border-color: var(--dark); }
+</style>
+
+<script src="/static/admin-pages/admin-nav.js?v=2"></script>
+<script src="/static/admin-pages/orders.js?v=2"></script>
+</body>
+</html>

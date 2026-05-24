@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — Kairos</title>
+  <meta name="description" content="Manage your Kairos account — profile, orders, and wishlist.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/customer-pages/style.css">
+  <link rel="stylesheet" href="/static/customer-pages/account.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="account-page">
+    <div class="account-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="account-sidebar">
+        <div class="account-avatar">
+          <span id="avatar-initials">?</span>
+        </div>
+        <h2 id="sidebar-name" class="sidebar-name">My Account</h2>
+        <p id="sidebar-email" class="sidebar-email"></p>
+        <nav class="account-nav">
+          <a href="#profile" class="account-nav-link active" onclick="showSection('profile',this);return false">Profile</a>
+          <a href="#wishlist" class="account-nav-link" onclick="showSection('wishlist',this);loadWishlist();return false">Wishlist</a>
+          <a href="/static/customer-pages/order.html" class="account-nav-link">My Orders</a>
+          <button class="account-nav-link logout-link" onclick="doLogout()">Logout</button>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="account-content">
+
+        <!-- PROFILE SECTION -->
+        <section id="section-profile" class="account-section">
+          <div class="section-header" style="display:flex;align-items:center;justify-content:space-between">
+            <h3 class="section-title">Profile Information</h3>
+            <button class="btn-outline" id="edit-toggle-btn" onclick="toggleEditMode()" style="font-size:12px;padding:7px 16px">Edit Profile</button>
+          </div>
+          <div id="profile-loading" class="profile-state">Loading profile…</div>
+
+          <!-- VIEW MODE -->
+          <div id="profile-info" class="profile-grid" style="display:none">
+            <div class="profile-field">
+              <label>Full Name</label>
+              <p id="prof-name"></p>
+            </div>
+            <div class="profile-field">
+              <label>Email Address</label>
+              <p id="prof-email"></p>
+            </div>
+            <div class="profile-field">
+              <label>Phone Number</label>
+              <p id="prof-phone"></p>
+            </div>
+            <div class="profile-field">
+              <label>Saved Address</label>
+              <p id="prof-address"></p>
+            </div>
+            <div class="profile-field">
+              <label>Member Since</label>
+              <p id="prof-since"></p>
+            </div>
+          </div>
+
+          <!-- EDIT MODE -->
+          <div id="edit-profile-form" style="display:none;margin-top:24px">
+            <div class="profile-grid">
+              <div class="profile-field">
+                <label for="edit-name">Full Name</label>
+                <input type="text" id="edit-name" class="profile-input" placeholder="Your name">
+              </div>
+              <div class="profile-field">
+                <label for="edit-phone">Phone Number</label>
+                <input type="tel" id="edit-phone" class="profile-input" placeholder="03XX XXXXXXX">
+              </div>
+              <div class="profile-field full">
+                <label for="edit-address">Saved Address</label>
+                <textarea id="edit-address" class="profile-input" rows="3" placeholder="House no., street, city"></textarea>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:20px">
+              <button class="btn-fill" onclick="saveProfile()" style="padding:10px 28px;font-size:13px">Save Changes</button>
+              <button class="btn-outline" onclick="toggleEditMode()" style="padding:10px 20px;font-size:13px">Cancel</button>
+            </div>
+            <p id="edit-msg" style="margin-top:12px;font-size:13px;color:var(--rose)"></p>
+          </div>
+
+          <p id="profile-error" class="profile-state" style="color:var(--rose)"></p>
+        </section>
+
+        <!-- WISHLIST SECTION -->
+        <section id="section-wishlist" class="account-section" style="display:none">
+          <div class="section-header">
+            <h3 class="section-title">My Wishlist</h3>
+          </div>
+          <div id="wishlist-container">
+            <p class="profile-state">Loading wishlist…</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/static/customer-pages/account.js"></script>
+  <script src="/static/customer-pages/nav.js"></script>
+</body>
+</html>

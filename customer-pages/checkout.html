@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Kairos</title>
+  <meta name="description" content="Complete your Kairos order. Cash on delivery available nationwide.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/customer-pages/style.css">
+  <link rel="stylesheet" href="/static/customer-pages/checkout.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="checkout-container">
+    <section class="checkout-shell">
+
+      <!-- LEFT: SHIPPING FORM -->
+      <div class="checkout-panel">
+        <p class="checkout-kicker">Secure checkout</p>
+        <h1>Shipping Details</h1>
+
+        <form class="checkout-form" onsubmit="return false">
+          <div class="form-group">
+            <label for="customer-name">Full Name</label>
+            <input type="text" id="customer-name" placeholder="Enter full name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone-no">Contact Number</label>
+            <input type="tel" id="phone-no" placeholder="0300 0000000" required>
+          </div>
+          <div class="form-group">
+            <label for="customer-address">Shipping Address</label>
+            <textarea id="customer-address" placeholder="House no., street, area, city" required></textarea>
+          </div>
+
+          <!-- PROMO CODE -->
+          <div class="form-group">
+            <label for="promo-input">Promo Code <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+            <div class="promo-row">
+              <input type="text" id="promo-input" placeholder="Enter code e.g. SAVE10" style="text-transform:uppercase">
+              <button type="button" class="btn-outline promo-apply-btn" onclick="applyPromo()">Apply</button>
+            </div>
+            <p id="promo-msg" class="promo-msg"></p>
+          </div>
+
+          <button id="place-order" class="btn-fill" type="button" onclick="placeOrder()">Place Order (COD)</button>
+          <p id="order-message" class="order-msg"></p>
+        </form>
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="order-summary">
+        <p class="checkout-kicker">Your bag</p>
+        <h2>Order Summary</h2>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="summary-divider"></div>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong>PKR <span id="cart-total">0</span></strong>
+        </div>
+        <div id="discount-row" class="summary-row" style="display:none;color:var(--rose)">
+          <span>Discount (<span id="discount-pct"></span>%)</span>
+          <span>− PKR <span id="discount-amt"></span></span>
+        </div>
+        <div class="summary-row" style="font-size:12px;color:var(--text-muted)">
+          <span>Shipping</span>
+          <span id="shipping-note">Calculated at confirmation</span>
+        </div>
+        <p class="summary-note">Orders are confirmed via WhatsApp or call within 24 hours. Payment is accepted on delivery (COD).</p>
+        <a href="/static/customer-pages/index.html" class="continue-link">&larr; Continue Shopping</a>
+      </aside>
+
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/static/customer-pages/checkout.js"></script>
+  <script src="/static/customer-pages/nav.js"></script>
+</body>
+</html>

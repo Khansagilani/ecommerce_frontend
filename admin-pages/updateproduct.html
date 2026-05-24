@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product — Kairos Admin</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-layout">
+    <div id="admin-nav-placeholder"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Edit Product</span>
+            <a href="/static/admin-pages/index.html" class="btn-outline">← Back to Dashboard</a>
+        </header>
+
+        <div class="admin-content">
+            <div class="admin-form-page">
+                <div class="form-card">
+                    <h2>Update Product</h2>
+
+                    <form id="updateform" novalidate>
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label for="prod-name">Product Name *</label>
+                                <input type="text" id="prod-name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-category">Category</label>
+                                <select id="prod-category">
+                                    <option value="">Select category</option>
+                                    <option value="rtw">Ready to Wear (RTW)</option>
+                                    <option value="unstitched">Unstitched</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-style">Style</label>
+                                <select id="prod-style">
+                                    <option value="">Select style</option>
+                                    <option value="casual">Casual</option>
+                                    <option value="formal">Formal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-fabric">Fabric Type</label>
+                                <select id="prod-fabric">
+                                    <option value="">Select fabric</option>
+                                    <option value="printed">Printed</option>
+                                    <option value="embroidered">Embroidered</option>
+                                    <option value="plain">Plain</option>
+                                    <option value="jacquard">Jacquard</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-pieces">Pieces</label>
+                                <select id="prod-pieces">
+                                    <option value="">Select pieces</option>
+                                    <option value="1piece">1 Piece</option>
+                                    <option value="2piece">2 Piece</option>
+                                    <option value="3piece">3 Piece</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-price">Price (PKR) *</label>
+                                <input type="number" id="prod-price" min="0" step="1" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prod-stock">Stock Quantity *</label>
+                                <input type="number" id="prod-stock" min="0" required>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="prod-sizes">Available Sizes</label>
+                                <input type="text" id="prod-sizes" placeholder="XS,S,M,L,XL">
+                                <span class="field-hint">Comma-separated — leave blank if one-size or unstitched</span>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="prod-description">Description</label>
+                                <textarea id="prod-description"></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <label>Current Image</label>
+                                <img id="preview" class="img-preview" src="" alt="Current image" style="display:block;max-width:220px;margin-bottom:12px">
+                                <label for="new-img" style="display:block;margin-top:8px">Replace Image</label>
+                                <input type="file" id="new-img" accept="image/*" style="margin-top:4px">
+                                <button type="button" class="btn-outline" style="margin-top:10px;font-size:12px;padding:6px 14px" onclick="uploadImage()">Upload New Image</button>
+                                <p id="img-msg" style="font-size:12px;margin-top:6px"></p>
+                            </div>
+
+                        </div>
+
+                        <p id="form-msg" class="form-msg"></p>
+
+                        <div class="form-actions">
+                            <button type="submit" id="submit-btn" class="btn-primary">Save Changes</button>
+                            <a href="/static/admin-pages/index.html" class="btn-outline">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/admin-pages/admin-nav.js?v=2"></script>
+<script src="/static/admin-pages/updateproduct.js?v=2"></script>
+</body>
+</html>

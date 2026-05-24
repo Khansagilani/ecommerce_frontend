@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Codes — Kairos Admin</title>
+    <link rel="stylesheet" href="/static/admin-pages/admin-style.css">
+</head>
+<body>
+<div class="admin-layout">
+    <div id="admin-nav-placeholder"></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Promo Codes</span>
+        </header>
+
+        <div class="admin-content">
+
+            <!-- Create Promo Code Form -->
+            <div class="form-card" style="margin-bottom:32px;max-width:520px">
+                <h3 style="font-size:15px;margin-bottom:20px">Create Promo Code</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="promo-code">Code *</label>
+                        <input type="text" id="promo-code" placeholder="e.g. SAVE20" style="text-transform:uppercase">
+                    </div>
+                    <div class="form-group">
+                        <label for="promo-discount">Discount % *</label>
+                        <input type="number" id="promo-discount" placeholder="e.g. 20" min="1" max="100">
+                    </div>
+                    <div class="form-group full">
+                        <label for="promo-uses">Uses Remaining <span style="font-weight:400;color:var(--muted)">(leave blank for unlimited)</span></label>
+                        <input type="number" id="promo-uses" placeholder="e.g. 100" min="1">
+                    </div>
+                </div>
+                <div class="form-actions" style="margin-top:16px">
+                    <button class="btn-primary" onclick="createPromo()">Create Code</button>
+                </div>
+                <p id="promo-create-msg" style="margin-top:12px;font-size:13px"></p>
+            </div>
+
+            <!-- Promo Codes Table -->
+            <div class="table-wrap">
+                <div id="promo-container">
+                    <p class="table-empty">Loading promo codes…</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/admin-pages/admin-nav.js?v=2"></script>
+<script src="/static/admin-pages/promo.js?v=2"></script>
+</body>
+</html>

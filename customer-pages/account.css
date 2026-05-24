@@ -1,0 +1,230 @@
+body { background: var(--cream); }
+
+#account-page {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+}
+
+.account-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ── Sidebar ── */
+.account-sidebar {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: sticky;
+    top: calc(var(--nav-h) + var(--cat-h) + 20px);
+}
+
+.account-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sidebar-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0 0 4px;
+}
+
+.sidebar-email {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 0 0 24px;
+    word-break: break-all;
+}
+
+.account-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
+    text-align: left;
+}
+
+.account-nav-link {
+    display: block;
+    width: 100%;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background .15s, color .15s;
+}
+
+.account-nav-link:hover,
+.account-nav-link.active {
+    background: var(--cream);
+    color: var(--rose);
+}
+
+.account-nav-link.logout-link {
+    color: var(--text-muted);
+    margin-top: 8px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 14px;
+}
+
+.account-nav-link.logout-link:hover {
+    color: #c0392b;
+    background: #fdf0f0;
+}
+
+/* ── Main Content ── */
+.account-content { min-width: 0; }
+
+.account-section {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    padding: 36px 40px 40px;
+    margin-bottom: 24px;
+}
+
+.section-header { margin-bottom: 28px; }
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0 0 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--rose);
+    margin-top: 10px;
+}
+
+/* ── Profile Grid ── */
+.profile-state {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 24px 0;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 36px;
+}
+
+.profile-field label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--text-faint, #b5a59e);
+    margin-bottom: 6px;
+}
+
+.profile-field p {
+    font-size: 14px;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 820px) {
+    .account-layout {
+        grid-template-columns: 1fr;
+    }
+    .account-sidebar {
+        position: static;
+    }
+}
+
+/* ── PROFILE INPUT (edit mode) ── */
+.profile-input {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font: inherit;
+    font-size: 14px;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+    box-sizing: border-box;
+}
+.profile-input:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(192,81,111,.1);
+}
+.profile-field.full { grid-column: 1 / -1; }
+
+/* ── WISHLIST GRID ── */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+.wishlist-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+}
+.wishlist-card:hover { box-shadow: 0 6px 24px rgba(28,20,20,.09); }
+.wishlist-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+.wishlist-info { padding: 14px 16px; }
+.wishlist-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+}
+.wishlist-name:hover { color: var(--rose); }
+.wishlist-price { font-size: 13px; color: var(--rose); font-weight: 600; margin-bottom: 4px; }
+.wishlist-stock { font-size: 11px; margin-bottom: 10px; }
+.wishlist-remove-btn {
+    font-size: 11px;
+    padding: 6px 14px;
+    border-color: var(--rose);
+    color: var(--rose);
+    width: 100%;
+}
+
+@media (max-width: 540px) {
+    #account-page { padding: 32px 16px 60px; }
+    .account-section { padding: 24px 20px 28px; }
+    .profile-grid { grid-template-columns: 1fr; gap: 18px; }
+    .wishlist-grid { grid-template-columns: 1fr 1fr; }
+}
